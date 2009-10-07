@@ -548,7 +548,7 @@ Ajax.InPlaceEditor = Class.create({
     }
     fld.name = this.options.paramName;
     fld.value = text; // No HTML breaks conversion anymore
-    fld.className = 'editor_field';
+    fld.className = this.options.controlClassName;
     if (this.options.submitOnBlur)
       fld.onblur = this._boundSubmitHandler;
     this._controls.editor = fld;
@@ -566,6 +566,7 @@ Ajax.InPlaceEditor = Class.create({
     this._form = $(document.createElement('form'));
     this._form.id = this.options.formId;
     this._form.addClassName(this.options.formClassName);
+    this._form.addClassName(this.options.controlClassName);
     this._form.onsubmit = this._boundSubmitHandler;
     this.createEditField();
     if ('textarea' == this._controls.editor.tagName.toLowerCase())
@@ -877,6 +878,7 @@ Object.extend(Ajax.InPlaceEditor, {
     externalControlOnly: false,
     fieldPostCreation: 'activate',              // 'activate'|'focus'|false
     formClassName: 'inplaceeditor-form',
+    controlClassName: 'editor_field',
     formId: null,                               // id|elt
     highlightColor: '#ffff99',
     highlightEndColor: '#ffffff',
