@@ -566,7 +566,6 @@ Ajax.InPlaceEditor = Class.create({
     this._form = $(document.createElement('form'));
     this._form.id = this.options.formId;
     this._form.addClassName(this.options.formClassName);
-    this._form.addClassName(this.options.controlClassName);
     this._form.onsubmit = this._boundSubmitHandler;
     this.createEditField();
     if ('textarea' == this._controls.editor.tagName.toLowerCase())
